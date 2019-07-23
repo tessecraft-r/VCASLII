@@ -1,16 +1,21 @@
 let block;
+let blockList=[];
+let blockNum=10;
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    block = new Block();
+    for(i=0;i<blockNum;i++){
+        blockList[i] = new Block();
+    }
 }
 
 function draw() {
     background(204);
-    block.display();
-
+    for(i=0;i<blockNum;i++){
+        blockList[i].display();
+    }
 }
-
-function mouseWheel(event) {
-    block.x+=event.delta;
-    redraw();
+function mousePressed(){
+    for(i=0;i<blockNum;i++){
+        blockList[i].mousePressed();
+    }
 }
