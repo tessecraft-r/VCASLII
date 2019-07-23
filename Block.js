@@ -15,6 +15,11 @@ class Block{
         this.height = 50;
     }
     display(){
+        if(this.isOver(mouseX,mouseY)){
+            stroke(255);
+        }else{
+            stroke(0);
+        }
         fill('rgb(0,255,0)');
         rect(this.x, this.y, this.width, this.height, 20);
     }
