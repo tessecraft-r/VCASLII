@@ -2,7 +2,7 @@ let block;
 let blockList=[];
 let blockNum=10;
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth * 0.9, windowHeight * 0.9);
     rectMode(RADIUS);
     for(i=0;i<blockNum;i++){
         blockList[i] = new Block();
