@@ -11,8 +11,8 @@ class Block{
         this.locked = false;
         this.focus = false;
         this.priority = 1;
-        this.width = 100;
-        this.height = 50;
+        this.width = 50;
+        this.height = 25;
     }
     display(){
         if(this.isOver(mouseX,mouseY)){
@@ -24,20 +24,25 @@ class Block{
         rect(this.x, this.y, this.width, this.height, 20);
     }
     isOver(x,y){
-        if (x > this.x - this.width && x < this.x + this.width && y > this.y - this.height && y < this.y + this.height ){
+        if (x > this.x - this.width && x < this.x + this.width && y > this.y - this.height/2 && y < this.y + this.height ){
             return true;
         }
         return false;
     }
     mouseDragged(){
-
+        if (this.locked) {
+            this.x = mouseX - this.offsetX;
+            this.y = mouseY - this.offsetX;
+          }
     }
     mousePressed(){
         if (this.isOver(mouseX,mouseY)){
-            this.x += 10;
+            this.locked = true;
         }
+        this.offsetX = mouseX - this.x;
+        this.offsetY = mouseY - this.y;
     }
     mouseReleased(){
-
+        this.locked = false;
     }
 }
