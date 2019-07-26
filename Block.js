@@ -1,5 +1,5 @@
 class Block{
-    constructor(label, swidth = 60, sheight=17) {
+    constructor(label, swidth = 60, sheight = 17) {
         this.x = random(width);
         this.y = random(height);
         this.id = 1;
@@ -70,5 +70,15 @@ class Block{
 
     isLocked(){
         return this.locked;
+    }
+}
+class LDBlock extends Block{
+    constructor(swidth = 60, sheight = 17){
+        super("LD",swidth,sheight);
+    }
+}
+class LADBlock extends Block{
+    constructor(swidth = 60, sheight = 17){
+        super("LAD",swidth,sheight);
     }
 }
