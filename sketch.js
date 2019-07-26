@@ -6,33 +6,34 @@ function setup() {
     createCanvas(windowWidth * 0.9, windowHeight * 0.9);
     rectMode(RADIUS);
     for(i=0;i<blockNum;i++){
-        blockList[i] = new Block();
+        blockList[i] = new Block("Block" + i);
     }
     memory = new Memory();
 }
 
 function draw() {
     background(204);
-    for(i=0;i<blockList.length;i++){
-        blockList[i].display();
-    }
+    blockList.forEach(function(block){
+        block.display();
+    });
     memory.display();
 }
 function mousePressed(){
-    for(i=0;i<blockList.length;i++){
-        blockList[i].mousePressed();
-    }
+    blockList.some(function(block){
+        block.mousePressed();
+        return block.isLocked();
+    });
 }
 function mouseDragged(){
-    for(i=0;i<blockList.length;i++){
-        blockList[i].mouseDragged();
-    }
+    blockList.forEach(function(block){
+        block.mouseDragged();
+    });
 }
 function mouseReleased(){
-    for(i=0;i<blockList.length;i++){
-        blockList[i].mouseReleased();
-    }
+    blockList.forEach(function(block){
+        block.mouseReleased();
+    });
 }
 function mouseWheel(event) {
     memory.mouseWheel(event);
-  }
+}
