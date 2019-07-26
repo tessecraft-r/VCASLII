@@ -1,6 +1,6 @@
 class Memory{
     constructor(){
-        this.x = 100;
+        this.x = 500;
         this.y = 200;
         this.offsetX = 0;
         this.offsetY = 0;
@@ -17,6 +17,7 @@ class Memory{
     }
     display(){
         for(var i=0;i<this.addressRow.length;i++){
+            //メモリ一覧を出す際メモリー全体ののwidthとheightの範囲のみ表示させる
             if(this.height - this.y < this.addressRow[i].y && this.height + this.y > this.addressRow[i].y){
                 this.addressRow[i].visible = true;
                 this.valueRow[i].visible = true;
@@ -35,7 +36,7 @@ class Memory{
         return '0x' + (('0000' + v.toString(16).toUpperCase()).substr(-4));
     }
     mouseWheel(event){
-        if(this.isOver(mouseX,mouseY) && this.addressRow[0].y + event.delta < windowHeight - 100 ){
+        if(this.isOver(mouseX,mouseY)){
             for(var i=0;i<this.addressRow.length;i++){
                 this.addressRow[i].y += event.delta;
                 this.valueRow[i].y += event.delta;
