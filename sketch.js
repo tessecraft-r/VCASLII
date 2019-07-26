@@ -6,10 +6,10 @@ function setup() {
     createCanvas(windowWidth * 0.9, windowHeight * 0.9);
     rectMode(RADIUS);
     for(i=0;i<blockNum;i++){
-        blockList[i] = new LDBlock();
+        blockList.push(new LDBlock());
     }
-    for(i=blockNum;i<blockNum*2;i++){
-        blockList[i] = new LADBlock();
+    for(i=0;i<blockNum;i++){
+        blockList.push(new LADBlock());
     }
     memory = new Memory();
 }
