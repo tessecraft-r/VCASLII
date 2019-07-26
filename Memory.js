@@ -16,6 +16,7 @@ class Memory{
         }
     }
     display(){
+        
         for(var i=0;i<this.addressRow.length;i++){
             //メモリ一覧を出す際メモリー全体ののwidthとheightの範囲のみ表示させる
             if(this.height - this.y < this.addressRow[i].y && this.height + this.y > this.addressRow[i].y){
@@ -65,10 +66,12 @@ class AddressBlock{
         this.label = label;
     }
     display(){
+        stroke('rgb(7, 43, 79)');
         fill(255);
         rect(this.x, this.y, this.width, this.height);
         textSize(this.textSize);
         textAlign(CENTER, CENTER);
+        stroke('rgb(0, 128, 255)');
         text(this.label, this.x , this.y);
     }
 }
@@ -87,10 +90,12 @@ class ValueBlock{
         this.label = label;
     }
     display(){
+        stroke('rgb(7, 43, 79)');
         fill(255);
         rect(this.x, this.y, this.width, this.height);
         textSize(this.textSize);
         textAlign(CENTER, CENTER);
+        stroke('rgb(0, 128, 255)');
         text(this.label, this.x , this.y);
     }
 }
