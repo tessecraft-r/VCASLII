@@ -65,7 +65,12 @@ class Block{
     }
 
     mouseReleased(){
+        if(this.isLocked() == true){
+            this.locked = false;
+            return this
+        }
         this.locked = false;
+        return false
     }
 
     isLocked(){

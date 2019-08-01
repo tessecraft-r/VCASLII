@@ -34,7 +34,13 @@ function mouseDragged(){
 }
 function mouseReleased(){
     blockList.forEach(function(block){
-        block.mouseReleased();
+        //Blockをドラックして離したら自分自身を返す
+        x = block.mouseReleased();
+        if(x){
+            /*
+            alert(x.label);
+            */
+        }
     });
 }
 function mouseWheel(event) {
